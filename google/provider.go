@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-google/version"
 
 	googleoauth "golang.org/x/oauth2/google"
 )
@@ -1601,7 +1600,7 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData, p *schema.Pr
 		Zone:                d.Get("zone").(string),
 		UserProjectOverride: d.Get("user_project_override").(bool),
 		BillingProject:      d.Get("billing_project").(string),
-		UserAgent:           p.UserAgent("terraform-provider-google", version.ProviderVersion),
+		UserAgent:           p.UserAgent("terraform-provider-google", "4.0.0"),
 	}
 
 	// opt in extension for adding to the User-Agent header
