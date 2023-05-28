@@ -1,4 +1,4 @@
-module google
+module github.com/lorioux/google-provider/google
 
 go 1.20
 
