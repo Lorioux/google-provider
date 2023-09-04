@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 TEST?=$$(go list ./... | grep -v github.com/hashicorp/terraform-provider-google/scripts)
 WEBSITE_REPO=github.com/hashicorp/terraform-website
 PKG_NAME=google
@@ -13,6 +14,23 @@ test: lint generate
 
 testacc: generate
 	TF_ACC=1 TF_SCHEMA_PANIC_ON_ERROR=1 go test $(TEST) -v $(TESTARGS) -timeout 240m -ldflags="-X=github.com/hashicorp/terraform-provider-google/version.ProviderVersion=acc"
+=======
+TEST?=$$(go list ./... | grep -v github.com/hashicorp/terraform-provider-google-beta/scripts)
+WEBSITE_REPO=github.com/hashicorp/terraform-website
+PKG_NAME=google
+DIR_NAME=google-beta
+
+default: build
+
+build: lint
+	go install
+
+test: lint
+	go test $(TESTARGS) -timeout=30s $(TEST)
+
+testacc: lint
+	TF_ACC=1 TF_SCHEMA_PANIC_ON_ERROR=1 go test $(TEST) -v $(TESTARGS) -timeout 240m -ldflags="-X=github.com/hashicorp/terraform-provider-google-beta/version.ProviderVersion=acc"
+>>>>>>> e214aac40503b2e28c5bcc73b7c91726014c7e35
 
 fmt:
 	@echo "==> Fixing source code with gofmt..."
@@ -26,9 +44,12 @@ vet:
 	go vet
 
 lint: fmtcheck vet
+<<<<<<< HEAD
 
 generate:
 	go generate  ./...
+=======
+>>>>>>> e214aac40503b2e28c5bcc73b7c91726014c7e35
 
 test-compile:
 	@if [ "$(TEST)" = "./..." ]; then \
@@ -47,5 +68,10 @@ endif
 
 docscheck:
 	@sh -c "'$(CURDIR)/scripts/docscheck.sh'"
+<<<<<<< HEAD
+=======
+
+.PHONY: build test testacc fmt fmtcheck vet lint  errcheck test-compile website website-test docscheck
+>>>>>>> e214aac40503b2e28c5bcc73b7c91726014c7e35
 
 .PHONY: build test testacc fmt fmtcheck vet lint test-compile website website-test docscheck generate

@@ -1,4 +1,8 @@
 ```release-note:enhancement
 sql: added support for major version upgrade to `google_sql_database_instance ` resource
+<<<<<<< HEAD
 
 ```
+=======
+```
+>>>>>>> e214aac40503b2e28c5bcc73b7c91726014c7e35

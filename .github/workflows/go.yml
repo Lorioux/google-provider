@@ -14,10 +14,17 @@ jobs:
     steps:
 
     - name: Check out code into the Go module directory
+<<<<<<< HEAD
       uses: actions/checkout@v3
 
     - name: Set up Go 1.x
       uses: actions/setup-go@v3
+=======
+      uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+
+    - name: Set up Go 1.x
+      uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
+>>>>>>> e214aac40503b2e28c5bcc73b7c91726014c7e35
       with:
         go-version-file: "go.mod"
 
@@ -28,7 +35,10 @@ jobs:
     - name: Build
       run: |
         make lint
+<<<<<<< HEAD
         make generate
+=======
+>>>>>>> e214aac40503b2e28c5bcc73b7c91726014c7e35
         go build
 
     - name: Test
